@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apps für den Unterricht</title>
+<style>
+/* Layout: ruhige Linkliste in drei Gruppen, große Tippflächen, Karten nur für die Apps */
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --fg: #1c2330;
+  --muted: #566074;
+  --line: #d8dde6;
+  --lernen: #1f5fbf;
+  --lernen-soft: #e4edfb;
+  --taster: #6a3fb5;
+  --taster-soft: #ece4f8;
+  --werkzeug: #17725a;
+  --werkzeug-soft: #ddf1ea;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161e;
+    --card: #1b212c;
+    --fg: #eef1f6;
+    --muted: #a3adbf;
+    --line: #2c3544;
+    --lernen: #7fb0ff;
+    --lernen-soft: #1c2b47;
+    --taster: #b99bf0;
+    --taster-soft: #2c2342;
+    --werkzeug: #6fd3b3;
+    --werkzeug-soft: #173629;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161e;
+  --card: #1b212c;
+  --fg: #eef1f6;
+  --muted: #a3adbf;
+  --line: #2c3544;
+  --lernen: #7fb0ff;
+  --lernen-soft: #1c2b47;
+  --taster: #b99bf0;
+  --taster-soft: #2c2342;
+  --werkzeug: #6fd3b3;
+  --werkzeug-soft: #173629;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+main { max-width: 980px; margin-inline: auto; }
+header { margin-bottom: 40px; }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 12px;
+  text-wrap: balance;
+}
+.lead { color: var(--muted); max-width: 60ch; margin: 0; }
+
+section { margin-top: 40px; }
+.group-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+h2 { font-size: 1.25rem; margin: 0; }
+.group-note { color: var(--muted); font-size: 0.95rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+
+a.app {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 18px 20px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  min-height: 132px;
+}
+a.app:hover { border-color: var(--c); }
+a.app:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
+.app h3 { margin: 0; font-size: 1.15rem; color: var(--c); overflow-wrap: anywhere; }
+.app p { margin: 0; color: var(--fg); font-size: 0.97rem; }
+.app .url { margin-top: auto; padding-top: 8px; color: var(--muted); font-size: 0.82rem; overflow-wrap: anywhere; }
+.tag {
+  align-self: flex-start;
+  background: var(--soft);
+  color: var(--c);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.g-lernen { --c: var(--lernen); --soft: var(--lernen-soft); }
+.g-taster { --c: var(--taster); --soft: var(--taster-soft); }
+.g-werkzeug { --c: var(--werkzeug); --soft: var(--werkzeug-soft); }
+.g-lernen h2 { color: var(--lernen); }
+.g-taster h2 { color: var(--taster); }
+.g-werkzeug h2 { color: var(--werkzeug); }
+
+footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Apps für den Unterricht</h1>
+    <p class="lead">Zwölf kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
+  </header>
+
+  <section class="g-lernen" aria-labelledby="h-lernen">
+    <div class="group-head">
+      <h2 id="h-lernen">Lernen: Sprache, Lesen, Mathe</h2>
+      <span class="group-note">7 Apps</span>
+    </div>
+    <div class="grid">
+      <a class="app" href="https://walteroelf.github.io/Bilderwahl2/">
+        <h3>Bilderwahl</h3>
+        <p>Sprachverständnis: Wörter hören und das passende Bild wählen, mit Piktogrammen und Audio.</p>
+        <span class="url">walteroelf.github.io/Bilderwahl2</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/ABC-Bingo1/">
+        <h3>Buchstaben-Bingo</h3>
+        <p>Ziehautomat für Bingo: Ein Buchstabe erscheint groß und wird vorgelesen.</p>
+        <span class="url">walteroelf.github.io/ABC-Bingo1</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/MatheBingo/">
+        <h3>Mathe-Bingo</h3>
+        <p>Rechen-Würfel mit Sprachausgabe für Mathe-Bingo und Mathe-Lotto.</p>
+        <span class="url">walteroelf.github.io/MatheBingo</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/4erQuiz1/">
+        <h3>4er-Quiz</h3>
+        <p>Quiz für die digitale Tafel mit vier Antworten, in ruhigem und reizarmem Design.</p>
+        <span class="url">walteroelf.github.io/4erQuiz1</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/kirmes-kiosk/">
+        <h3>Kirmes-Kiosk</h3>
+        <p>Preise zusammenrechnen, Spielgeld legen und fotografieren. Die App prüft den Betrag.</p>
+        <span class="url">walteroelf.github.io/kirmes-kiosk</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/cafe-kasse/">
+        <h3>Café-Kasse</h3>
+        <p>Artikel anlegen, Preise zusammenrechnen, mit Spielgeld bezahlen, Rückgeld ansehen.</p>
+        <span class="url">walteroelf.github.io/cafe-kasse</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/EscapeGame1/">
+        <h3>Escape-Game Einkaufen</h3>
+        <p>Drei Räume, ein Code. Alle spielen dasselbe Abenteuer auf ihrem eigenen Niveau.</p>
+        <span class="url">walteroelf.github.io/EscapeGame1</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="g-taster" aria-labelledby="h-taster">
+    <div class="group-head">
+      <h2 id="h-taster">Taster und Augensteuerung</h2>
+      <span class="group-note">2 Apps</span>
+    </div>
+    <div class="grid">
+      <a class="app" href="https://walteroelf.github.io/Tasterwelt/">
+        <h3>Tasterwelt</h3>
+        <p>Ursache und Wirkung: Mit jedem Tasterdruck passiert etwas. Per Taster, iSwitch oder Bildschirm.</p>
+        <span class="url">walteroelf.github.io/Tasterwelt</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/Lichtkette/">
+        <h3>Lichtkette</h3>
+        <p>Gemeinsames Licht-Spiel für iPads, Taster und Augensteuerung in der Digital-AG.</p>
+        <span class="url">walteroelf.github.io/Lichtkette</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="g-werkzeug" aria-labelledby="h-werkzeug">
+    <div class="group-head">
+      <h2 id="h-werkzeug">Werkzeuge für Lehrkräfte</h2>
+      <span class="group-note">3 Apps</span>
+    </div>
+    <div class="grid">
+      <a class="app" href="https://walteroelf.github.io/foerderdiagnostik/">
+        <h3>Förderdiagnostik</h3>
+        <p>Informelles Werkzeug für Lesen, Schreiben, Mathe und Hören. Alle Daten bleiben auf dem Gerät.</p>
+        <span class="url">walteroelf.github.io/foerderdiagnostik</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/TimerTimer8/">
+        <h3>TimerTimer 8</h3>
+        <p>Eieruhr mit roter Arbeitszeit und grüner Auszeit, jederzeit anpassbar.</p>
+        <span class="url">walteroelf.github.io/TimerTimer8</span>
+      </a>
+      <a class="app" href="https://walteroelf.github.io/TimerTimer7/">
+        <span class="tag">Ältere Version</span>
+        <h3>TimerTimer 7</h3>
+        <p>Vorgänger von TimerTimer 8. Bleibt online, weil der Link schon verteilt wurde.</p>
+        <span class="url">walteroelf.github.io/TimerTimer7</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>Stand: November 2026</footer>
+</main>
+</body>
+</html>
