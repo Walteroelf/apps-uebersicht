@@ -137,6 +137,14 @@ a.app:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
 .wip strong { font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.15; text-transform: uppercase; letter-spacing: 0.04em; }
 .wip span { font-size: 1.1rem; }
 
+.feedback { border-top: 1px solid var(--line); padding-top: 24px; max-width: 62ch; }
+.feedback p { margin: 0 0 12px; }
+.fb-note { background: var(--wip-bg); color: var(--wip-fg); border-radius: 8px; padding: 10px 14px; font-size: 0.97rem; }
+.fb-link { display: inline-block; background: var(--lernen); color: var(--bg); font-weight: 700; text-decoration: none; padding: 12px 20px; border-radius: 8px; }
+.fb-link:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+.fb-addr { color: var(--muted); font-size: 0.92rem; }
+.fb-addr span { user-select: all; overflow-wrap: anywhere; }
+
 footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 16px; }
 </style>
 </head>
@@ -222,6 +230,14 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1
         <span class="url">walteroelf.github.io/TimerTimer8</span>
       </a>
     </div>
+  </section>
+
+  <section class="feedback" aria-labelledby="h-feedback">
+    <h2 id="h-feedback">Rückmeldung</h2>
+    <p>Etwas gefunden, das nicht klappt, oder eine Idee? Schreib mir gern.</p>
+    <p class="fb-note"><strong>Wichtig:</strong> Das ist keine anonyme Rückmeldung. Deine E-Mail-Adresse ist für mich sichtbar. Bitte keine Namen von Schülerinnen und Schülern nennen.</p>
+    <p><a class="fb-link" href="mailto:06.gesegelt_hoehlen@icloud.com?subject=R%C3%BCckmeldung%20zu%20den%20Unterrichts-Apps">Rückmeldung per E-Mail schreiben</a></p>
+    <p class="fb-addr">Oder direkt an: <span>06.gesegelt_hoehlen@icloud.com</span></p>
   </section>
 
   <footer>© 2026 Walteroelf. Alle Rechte vorbehalten.<br>Stand: November 2026</footer>
