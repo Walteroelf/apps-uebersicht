@@ -145,6 +145,9 @@ a.app:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
 .fb-addr { color: var(--muted); font-size: 0.92rem; }
 .fb-addr span { user-select: all; overflow-wrap: anywhere; }
 
+.wip-fb { margin-top: 6px; font-weight: 700; }
+.wip-fb a { color: inherit; text-underline-offset: 3px; }
+.lead-2 { margin-top: 8px; }
 footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 16px; }
 </style>
 </head>
@@ -153,11 +156,13 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1
   <div class="wip" role="note">
     <strong>Work in Progress</strong>
     <span>Alle Projekte sind noch in Arbeit. Vieles ist unfertig und kann sich jederzeit ändern oder nicht funktionieren.</span>
+    <span class="wip-fb">Rückmeldungen sind willkommen: <a href="#h-feedback">Hier geht es zur Rückmeldung</a></span>
   </div>
 
   <header>
     <h1>Apps für den Unterricht</h1>
     <p class="lead">Neun kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
+    <p class="lead lead-2">Entstanden für den Unterricht an der Förderschule KME. Ich habe alle Apps per Vibe-Coding mit Claude erstellt.</p>
   </header>
 
   <section class="g-lernen" aria-labelledby="h-lernen">
