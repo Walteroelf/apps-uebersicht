@@ -18,6 +18,9 @@
   --taster-soft: #ece4f8;
   --werkzeug: #17725a;
   --werkzeug-soft: #ddf1ea;
+  --wip-bg: #fff1c2;
+  --wip-fg: #3d2c00;
+  --wip-line: #d99a00;
   --font-display: Georgia, "Times New Roman", serif;
   --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
@@ -34,6 +37,9 @@
     --taster-soft: #2c2342;
     --werkzeug: #6fd3b3;
     --werkzeug-soft: #173629;
+    --wip-bg: #3a2d08;
+    --wip-fg: #ffe9a8;
+    --wip-line: #e0a820;
     color-scheme: dark;
   }
 }
@@ -49,6 +55,9 @@
   --taster-soft: #2c2342;
   --werkzeug: #6fd3b3;
   --werkzeug-soft: #173629;
+  --wip-bg: #3a2d08;
+  --wip-fg: #ffe9a8;
+  --wip-line: #e0a820;
   color-scheme: dark;
 }
 
@@ -119,20 +128,34 @@ a.app:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
 .g-taster h2 { color: var(--taster); }
 .g-werkzeug h2 { color: var(--werkzeug); }
 
+.wip {
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--wip-bg); color: var(--wip-fg);
+  border: 3px solid var(--wip-line); border-radius: 10px;
+  padding: 18px 22px; margin-bottom: 32px;
+}
+.wip strong { font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.15; text-transform: uppercase; letter-spacing: 0.04em; }
+.wip span { font-size: 1.1rem; }
+
 footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 16px; }
 </style>
 </head>
 <body>
 <main>
+  <div class="wip" role="note">
+    <strong>Work in Progress</strong>
+    <span>Alle Projekte sind noch in Arbeit. Vieles ist unfertig und kann sich jederzeit ändern oder nicht funktionieren.</span>
+  </div>
+
   <header>
     <h1>Apps für den Unterricht</h1>
-    <p class="lead">Zwölf kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
+    <p class="lead">Neun kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
   </header>
 
   <section class="g-lernen" aria-labelledby="h-lernen">
     <div class="group-head">
       <h2 id="h-lernen">Lernen: Sprache, Lesen, Mathe</h2>
-      <span class="group-note">7 Apps</span>
+      <span class="group-note">6 Apps</span>
     </div>
     <div class="grid">
       <a class="app" href="https://walteroelf.github.io/Bilderwahl2/">
@@ -165,18 +188,13 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1
         <p>Artikel anlegen, Preise zusammenrechnen, mit Spielgeld bezahlen, Rückgeld ansehen.</p>
         <span class="url">walteroelf.github.io/cafe-kasse</span>
       </a>
-      <a class="app" href="https://walteroelf.github.io/EscapeGame1/">
-        <h3>Escape-Game Einkaufen</h3>
-        <p>Drei Räume, ein Code. Alle spielen dasselbe Abenteuer auf ihrem eigenen Niveau.</p>
-        <span class="url">walteroelf.github.io/EscapeGame1</span>
-      </a>
     </div>
   </section>
 
   <section class="g-taster" aria-labelledby="h-taster">
     <div class="group-head">
-      <h2 id="h-taster">Taster und Augensteuerung</h2>
-      <span class="group-note">2 Apps</span>
+      <h2 id="h-taster">Taster</h2>
+      <span class="group-note">1 App</span>
     </div>
     <div class="grid">
       <a class="app" href="https://walteroelf.github.io/Tasterwelt/">
@@ -184,18 +202,13 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1
         <p>Ursache und Wirkung: Mit jedem Tasterdruck passiert etwas. Per Taster, iSwitch oder Bildschirm.</p>
         <span class="url">walteroelf.github.io/Tasterwelt</span>
       </a>
-      <a class="app" href="https://walteroelf.github.io/Lichtkette/">
-        <h3>Lichtkette</h3>
-        <p>Gemeinsames Licht-Spiel für iPads, Taster und Augensteuerung in der Digital-AG.</p>
-        <span class="url">walteroelf.github.io/Lichtkette</span>
-      </a>
     </div>
   </section>
 
   <section class="g-werkzeug" aria-labelledby="h-werkzeug">
     <div class="group-head">
       <h2 id="h-werkzeug">Werkzeuge für Lehrkräfte</h2>
-      <span class="group-note">3 Apps</span>
+      <span class="group-note">2 Apps</span>
     </div>
     <div class="grid">
       <a class="app" href="https://walteroelf.github.io/foerderdiagnostik/">
@@ -207,12 +220,6 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1
         <h3>TimerTimer 8</h3>
         <p>Eieruhr mit roter Arbeitszeit und grüner Auszeit, jederzeit anpassbar.</p>
         <span class="url">walteroelf.github.io/TimerTimer8</span>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/TimerTimer7/">
-        <span class="tag">Ältere Version</span>
-        <h3>TimerTimer 7</h3>
-        <p>Vorgänger von TimerTimer 8. Bleibt online, weil der Link schon verteilt wurde.</p>
-        <span class="url">walteroelf.github.io/TimerTimer7</span>
       </a>
     </div>
   </section>
