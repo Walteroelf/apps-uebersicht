@@ -4,164 +4,139 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apps für den Unterricht</title>
+<meta name="theme-color" content="#FFD200">
+<meta name="apple-mobile-web-app-title" content="Apps KME">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-/* Layout: ruhige Linkliste in drei Gruppen, große Tippflächen, Karten nur für die Apps */
+/* Gestaltung angelehnt an die Spiele 1972: flache Farbflächen, klare Grotesk, Raster, Aicher-Palette */
 :root {
-  --bg: #f6f7f9;
+  color-scheme: light dark;
+  --bg: #f1f9fe;
   --card: #ffffff;
-  --fg: #1c2330;
-  --muted: #566074;
-  --line: #d8dde6;
-  --lernen: #1f5fbf;
-  --lernen-soft: #e4edfb;
-  --taster: #6a3fb5;
-  --taster-soft: #ece4f8;
-  --werkzeug: #17725a;
-  --werkzeug-soft: #ddf1ea;
-  --spielen: #b8470b;
-  --spielen-soft: #fbe6d8;
-  --wip-bg: #fff1c2;
-  --wip-fg: #3d2c00;
-  --wip-line: #d99a00;
-  --font-display: Georgia, "Times New Roman", serif;
-  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fg: #0b2a4a;
+  --muted: #3d5873;
+  --line: #0b2a4a;
+  --blau: #0075bf;       --on-blau: #ffffff;
+  --orange: #f39200;     --on-orange: #0b2a4a;
+  --gruen: #7ab51d;      --on-gruen: #0b2a4a;
+  --hellblau: #56b9e8;   --on-hellblau: #0b2a4a;
+  --gelb: #ffd200;       --on-gelb: #0b2a4a;
+  --silber: #b9c3cc;
+  --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #12161e;
-    --card: #1b212c;
-    --fg: #eef1f6;
-    --muted: #a3adbf;
-    --line: #2c3544;
-    --lernen: #7fb0ff;
-    --lernen-soft: #1c2b47;
-    --taster: #b99bf0;
-    --taster-soft: #2c2342;
-    --werkzeug: #6fd3b3;
-    --werkzeug-soft: #173629;
-    --spielen: #ffa56b;
-    --spielen-soft: #3a2415;
-    --wip-bg: #3a2d08;
-    --wip-fg: #ffe9a8;
-    --wip-line: #e0a820;
-    color-scheme: dark;
+  :root {
+    --bg: #0b2a4a;
+    --card: #12375f;
+    --fg: #f1f9fe;
+    --muted: #b8cde0;
+    --line: #f1f9fe;
+    --blau: #3aa3e8;   --on-blau: #0b2a4a;
   }
-}
-:root[data-theme="dark"] {
-  --bg: #12161e;
-  --card: #1b212c;
-  --fg: #eef1f6;
-  --muted: #a3adbf;
-  --line: #2c3544;
-  --lernen: #7fb0ff;
-  --lernen-soft: #1c2b47;
-  --taster: #b99bf0;
-  --taster-soft: #2c2342;
-  --werkzeug: #6fd3b3;
-  --werkzeug-soft: #173629;
-  --spielen: #ffa56b;
-  --spielen-soft: #3a2415;
-  --wip-bg: #3a2d08;
-  --wip-fg: #ffe9a8;
-  --wip-line: #e0a820;
-  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
 body {
+  margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: 17px;
   line-height: 1.5;
-  padding-block: 40px 64px;
+}
+.band { display: flex; height: 14px; }
+.band i { flex: 1; }
+.band i:nth-child(1) { background: var(--blau); }
+.band i:nth-child(2) { background: var(--hellblau); }
+.band i:nth-child(3) { background: var(--gruen); }
+.band i:nth-child(4) { background: var(--gelb); }
+.band i:nth-child(5) { background: var(--orange); }
+.band i:nth-child(6) { background: var(--silber); }
+
+main {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-block: 32px 64px;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-main { max-width: 980px; margin-inline: auto; }
-header { margin-bottom: 40px; }
+
+.wip {
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--gelb); color: var(--on-gelb);
+  border: 4px solid var(--on-gelb);
+  padding: 18px 22px; margin-bottom: 36px;
+}
+.wip strong { font-size: clamp(1.5rem, 5vw, 2.2rem); line-height: 1.1; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; }
+.wip span { font-size: 1.05rem; }
+.wip-fb { margin-top: 6px; font-weight: 700; }
+.wip-fb a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+
+header { display: flex; gap: 24px; align-items: center; margin-bottom: 12px; }
+.logo { flex: none; width: 96px; height: 96px; }
 h1 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(2rem, 6vw, 3rem);
-  line-height: 1.1;
+  font-weight: 800;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   margin: 0 0 12px;
   text-wrap: balance;
 }
-.lead { color: var(--muted); max-width: 60ch; margin: 0; }
+.lead { color: var(--muted); max-width: 62ch; margin: 0; }
+.lead-2 { margin-top: 6px; }
+@media (max-width: 520px) { header { flex-direction: column; align-items: flex-start; gap: 12px; } .logo { width: 72px; height: 72px; } }
 
-section { margin-top: 40px; }
-.group-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
-h2 { font-size: 1.25rem; margin: 0; }
-.group-note { color: var(--muted); font-size: 0.95rem; }
+section { margin-top: 44px; }
+.group-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+h2 { font-size: 1.4rem; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 12px; }
+h2::before { content: ""; flex: none; width: 1.1em; height: 1.1em; border-radius: 50%; background: var(--c); }
+.group-note { background: var(--c); color: var(--on); font-weight: 700; font-size: 0.85rem; padding: 2px 10px; border-radius: 99px; }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
 
 a.app {
   display: flex;
   flex-direction: column;
-  gap: 6px;
   min-width: 0;
-  padding: 18px 20px 16px;
   background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 10px;
+  border: 3px solid var(--c);
   color: inherit;
   text-decoration: none;
-  min-height: 132px;
+  min-height: 180px;
+  transition: transform .12s, box-shadow .12s;
 }
-a.app:hover { border-color: var(--c); }
-a.app:focus-visible { outline: 3px solid var(--c); outline-offset: 2px; }
-.app h3 { margin: 0; font-size: 1.15rem; color: var(--c); overflow-wrap: anywhere; }
-.app p { margin: 0; color: var(--fg); font-size: 0.97rem; }
-.app .url { margin-top: auto; padding-top: 8px; color: var(--muted); font-size: 0.82rem; overflow-wrap: anywhere; }
-.tag {
-  align-self: flex-start;
-  background: var(--soft);
-  color: var(--c);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
+a.app:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--c); }
+a.app:focus-visible { outline: 4px solid var(--fg); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { a.app { transition: none; } a.app:hover { transform: none; } }
+.app h3 { margin: 0; padding: 12px 18px; background: var(--c); color: var(--on); font-size: 1.25rem; font-weight: 800; overflow-wrap: anywhere; }
+.app p { margin: 0 18px; font-size: 0.98rem; }
+.app h3 + p { margin-top: 14px; }
+.app p.why { font-size: 0.9rem; color: var(--muted); border-top: 2px solid var(--c); padding-top: 8px; margin-top: 12px; }
+.app p.why strong { color: var(--fg); }
+.app .url { margin: auto 18px 0; padding: 10px 0 14px; color: var(--muted); font-size: 0.82rem; overflow-wrap: anywhere; }
 
-.g-lernen { --c: var(--lernen); --soft: var(--lernen-soft); }
-.g-taster { --c: var(--taster); --soft: var(--taster-soft); }
-.g-werkzeug { --c: var(--werkzeug); --soft: var(--werkzeug-soft); }
-.g-spielen { --c: var(--spielen); --soft: var(--spielen-soft); }
-.g-lernen h2 { color: var(--lernen); }
-.g-taster h2 { color: var(--taster); }
-.g-werkzeug h2 { color: var(--werkzeug); }
-.g-spielen h2 { color: var(--spielen); }
+.g-lernen { --c: var(--blau); --on: var(--on-blau); }
+.g-spielen { --c: var(--orange); --on: var(--on-orange); }
+.g-taster { --c: var(--gruen); --on: var(--on-gruen); }
+.g-werkzeug { --c: var(--hellblau); --on: var(--on-hellblau); }
 
-.wip {
-  display: flex; flex-direction: column; gap: 4px;
-  background: var(--wip-bg); color: var(--wip-fg);
-  border: 3px solid var(--wip-line); border-radius: 10px;
-  padding: 18px 22px; margin-bottom: 32px;
-}
-.wip strong { font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.15; text-transform: uppercase; letter-spacing: 0.04em; }
-.wip span { font-size: 1.1rem; }
-
-.feedback { border-top: 1px solid var(--line); padding-top: 24px; max-width: 62ch; }
+.feedback { --c: var(--blau); --on: var(--on-blau); border-top: 4px solid var(--line); padding-top: 24px; max-width: 64ch; }
+.feedback h2::before { background: var(--gelb); }
 .feedback p { margin: 0 0 12px; }
-.fb-note { background: var(--wip-bg); color: var(--wip-fg); border-radius: 8px; padding: 10px 14px; font-size: 0.97rem; }
-.fb-link { display: inline-block; background: var(--lernen); color: var(--bg); font-weight: 700; text-decoration: none; padding: 12px 20px; border-radius: 8px; }
-.fb-link:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+.fb-note { background: var(--gelb); color: var(--on-gelb); border: 3px solid var(--on-gelb); padding: 10px 14px; font-size: 0.97rem; }
+.fb-link { display: inline-block; background: var(--blau); color: var(--on-blau); font-weight: 800; text-decoration: none; padding: 14px 22px; border: 3px solid var(--blau); }
+.fb-link:hover { background: var(--card); color: var(--fg); }
+.fb-link:focus-visible { outline: 4px solid var(--fg); outline-offset: 3px; }
 .fb-addr { color: var(--muted); font-size: 0.92rem; }
 .fb-addr span { user-select: all; overflow-wrap: anywhere; }
 
-.wip-fb { margin-top: 6px; font-weight: 700; }
-.wip-fb a { color: inherit; text-underline-offset: 3px; }
-.lead-2 { margin-top: 8px; }
-.app p.why { font-size: 0.9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; margin-top: 4px; }
-.app p.why strong { color: var(--c); }
-footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); padding-top: 16px; }
+footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 4px solid var(--line); padding-top: 16px; }
 </style>
 </head>
 <body>
+<div class="band" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 <main>
   <div class="wip" role="note">
     <strong>Work in Progress</strong>
@@ -170,9 +145,12 @@ footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; border-top: 1
   </div>
 
   <header>
-    <h1>Apps für den Unterricht</h1>
-    <p class="lead">Neun kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
-    <p class="lead lead-2">Entstanden für den Unterricht an der Förderschule KME. Alle Apps wurden per Vibe-Coding mit Claude erstellt.</p>
+    <svg class="logo" viewBox="0 0 160 160" aria-hidden="true"><rect width="160" height="160" rx="36" fill="#FFD200"/><g transform="rotate(-10 80 80)"><rect x="28" y="40" width="104" height="80" rx="12" fill="#fff" stroke="#0B2A4A" stroke-width="7"/><circle cx="56" cy="80" r="10" fill="#0075BF"/><circle cx="80" cy="80" r="10" fill="#F39200"/><circle cx="104" cy="80" r="10" fill="#7AB51D"/></g></svg>
+    <div>
+      <h1>Apps für den Unterricht</h1>
+      <p class="lead">Neun kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
+      <p class="lead lead-2">Entstanden für den Unterricht an der Förderschule KME. Alle Apps wurden per Vibe-Coding mit Claude erstellt.</p>
+    </div>
   </header>
 
   <section class="g-lernen" aria-labelledby="h-lernen">
