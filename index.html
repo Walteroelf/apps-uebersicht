@@ -118,6 +118,8 @@ a.app:focus-visible { outline: 4px solid var(--fg); outline-offset: 3px; }
 .app .foot { margin: auto 18px 0; padding: 12px 0 14px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
 .app .url { color: var(--muted); font-size: 0.82rem; overflow-wrap: anywhere; min-width: 0; }
 .app .qr { flex: none; width: 96px; height: 96px; border: 3px solid #fff; background: #fff; }
+.app .tag { align-self: flex-start; margin: 12px 18px 0; background: var(--gelb); color: var(--on-gelb); border: 2px solid var(--on-gelb); font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 10px; }
+.app .tag + p { margin-top: 10px; }
 
 .g-lernen { --c: var(--blau); --on: var(--on-blau); }
 .g-spielen { --c: var(--orange); --on: var(--on-orange); }
@@ -152,7 +154,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     <svg class="logo" viewBox="0 0 160 160" aria-hidden="true"><rect width="160" height="160" rx="36" fill="#FFD200"/><g transform="rotate(-10 80 80)"><rect x="28" y="40" width="104" height="80" rx="12" fill="#fff" stroke="#0B2A4A" stroke-width="7"/><circle cx="56" cy="80" r="10" fill="#0075BF"/><circle cx="80" cy="80" r="10" fill="#F39200"/><circle cx="104" cy="80" r="10" fill="#7AB51D"/></g></svg>
     <div>
       <h1>Apps für den Unterricht</h1>
-      <p class="lead">Elf kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
+      <p class="lead">Zwölf kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
       <p class="lead lead-2">Entstanden für den Unterricht an der Förderschule KME. Alle Apps wurden per Vibe-Coding mit Claude erstellt.</p>
     </div>
   </header>
@@ -160,7 +162,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
   <section class="g-lernen" aria-labelledby="h-lernen">
     <div class="group-head">
       <h2 id="h-lernen">Lernen: Sprache, Lesen, Mathe</h2>
-      <span class="group-note">6 Apps</span>
+      <span class="group-note">7 Apps</span>
     </div>
     <div class="grid">
       <a class="app" href="https://walteroelf.github.io/Bilderwahl2/" target="_blank" rel="noopener">
@@ -199,6 +201,12 @@ footer a { color: inherit; text-underline-offset: 3px; }
         <p class="why"><strong>Das Besondere:</strong> Mit Spielgeld und großem Rückgeld. Passt zum praktischen Rechnen im Schülercafé.</p>
         <div class="foot"><span class="url">walteroelf.github.io/cafe-kasse</span><img class="qr" src="qr/cafe-kasse.svg" width="96" height="96" alt="QR-Code zu cafe-kasse" loading="lazy"></div>
       </a>
+      <a class="app" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener">
+        <h3>Mathe-Arena</h3>
+        <span class="tag">Noch nicht getestet</span>
+        <p>Rechenspiel für die digitale Tafel mit den Schüler-iPads: Jedes Kind bekommt Aufgaben auf seinem Niveau, die App lernt mit. Gemeinsames Klassenziel oder Wettbewerb an der Tafel.</p>
+        <p class="why"><strong>Das Besondere:</strong> Vom Ursache-Wirkung-Taster bis zum Rechnen bis 100. Antworten per Tippen, Taster oder Augensteuerung. Der Lernstand bleibt auf den Geräten, echte Namen stehen nur auf dem Lehrer-Gerät.</p>
+        <div class="foot"><span class="url">walteroelf.github.io/Mathe-Arena</span><img class="qr" src="qr/Mathe-Arena.svg" width="96" height="96" alt="QR-Code zu Mathe-Arena" loading="lazy"></div>
     </div>
   </section>
 
