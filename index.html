@@ -70,16 +70,19 @@ section { margin-top: 18px; }
 h2 { font-size: 1rem; margin: 0; display: flex; align-items: center; gap: 8px; }
 h2::before { content: ""; flex: none; width: 0.9em; height: 0.9em; border-radius: 50%; background: var(--c); }
 
-.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 220px)); grid-auto-rows: 100px; gap: 14px 10px; }
+.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 280px)); grid-auto-rows: 100px; gap: 14px 10px; }
 
 /* Kachel: links Name und Kurztext (Link zur App), rechts Pfeil für mehr */
 .app { position: relative; display: flex; align-items: stretch; background: var(--c); color: var(--dunkelblau); border: 2px solid var(--dunkelblau); min-width: 0; height: 100px; }
 .app-link {
   flex: 1; min-width: 0; padding: 6px 8px 6px 10px;
-  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  display: flex; flex-direction: row; align-items: center; gap: 8px;
   color: var(--dunkelblau); text-decoration: none; overflow: hidden;
 }
 .app-link:hover { box-shadow: inset 0 0 0 3px var(--dunkelblau); }
+.text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.icon { flex: none; width: 40px; height: 40px; border-radius: 10px; background: #fff; }
+.icon.platz { display: flex; align-items: center; justify-content: center; background: transparent; border: 2px dashed var(--dunkelblau); font-size: 1.2rem; }
 .name { font-size: 1rem; line-height: 1.15; overflow-wrap: break-word; hyphens: auto; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .kurz { font-size: 0.8rem; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .tag { position: absolute; top: -11px; right: 56px; background: var(--orange); color: var(--dunkelblau); border: 2px solid var(--dunkelblau); font-size: 0.68rem; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.04em; padding: 0 6px; }
@@ -155,7 +158,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     </div>
     <div class="kacheln">
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/MatheBingo/" target="_blank" rel="noopener"><span class="name">Mathe-Bingo</span><span class="kurz">Würfelhilfe für Touchpad und Taster</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/MatheBingo/" target="_blank" rel="noopener"><img class="icon" src="icons/MatheBingo.png" alt="" width="40" height="40"><span class="text"><span class="name">Mathe-Bingo</span><span class="kurz">Würfelhilfe für Touchpad und Taster</span></span></a>
         <details>
           <summary aria-label="Mehr zu Mathe-Bingo"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -167,7 +170,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/kirmes-kiosk/" target="_blank" rel="noopener"><span class="name">Kirmes-Kiosk</span><span class="kurz">Preise rechnen, Geld legen</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/kirmes-kiosk/" target="_blank" rel="noopener"><img class="icon" src="icons/kirmes-kiosk.png" alt="" width="40" height="40"><span class="text"><span class="name">Kirmes-Kiosk</span><span class="kurz">Preise rechnen, Geld legen</span></span></a>
         <details>
           <summary aria-label="Mehr zu Kirmes-Kiosk"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -179,7 +182,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener"><span class="name">Mathe-Arena</span><span class="kurz">Rechnen auf eigenem Niveau</span><span class="tag">Noch in Arbeit</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener"><span class="icon platz" aria-hidden="true">M</span><span class="text"><span class="name">Mathe-Arena</span><span class="kurz">Rechnen auf eigenem Niveau</span></span><span class="tag">Noch in Arbeit</span></a>
         <details>
           <summary aria-label="Mehr zu Mathe-Arena"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -199,7 +202,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     </div>
     <div class="kacheln">
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Bilderwahl2/" target="_blank" rel="noopener"><span class="name">Bilderwahl</span><span class="kurz">Wortschatzerweiterung mit variablen Übungen</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Bilderwahl2/" target="_blank" rel="noopener"><img class="icon" src="icons/Bilderwahl2.png" alt="" width="40" height="40"><span class="text"><span class="name">Bilderwahl</span><span class="kurz">Wortschatzerweiterung mit variablen Übungen</span></span></a>
         <details>
           <summary aria-label="Mehr zu Bilderwahl"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -211,7 +214,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/ABC-Bingo1/" target="_blank" rel="noopener"><span class="name">Buchstaben-Bingo</span><span class="kurz">Ziehhilfe für Touchpad und Taster</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/ABC-Bingo1/" target="_blank" rel="noopener"><img class="icon" src="icons/ABC-Bingo1.png" alt="" width="40" height="40"><span class="text"><span class="name">Buchstaben-Bingo</span><span class="kurz">Ziehhilfe für Touchpad und Taster</span></span></a>
         <details>
           <summary aria-label="Mehr zu Buchstaben-Bingo"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -231,7 +234,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     </div>
     <div class="kacheln">
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/tafel-spiele/" target="_blank" rel="noopener"><span class="name">Tafel-Spiele</span><span class="kurz">Zehn Spiele für die Tafel</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/tafel-spiele/" target="_blank" rel="noopener"><span class="icon platz" aria-hidden="true">T</span><span class="text"><span class="name">Tafel-Spiele</span><span class="kurz">Zehn Spiele für die Tafel</span></span></a>
         <details>
           <summary aria-label="Mehr zu Tafel-Spiele"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -243,7 +246,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Lichtkette/" target="_blank" rel="noopener"><span class="name">Lichtkette</span><span class="kurz">Licht wandert von Gerät zu Gerät</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Lichtkette/" target="_blank" rel="noopener"><span class="icon platz" aria-hidden="true">L</span><span class="text"><span class="name">Lichtkette</span><span class="kurz">Licht wandert von Gerät zu Gerät</span></span></a>
         <details>
           <summary aria-label="Mehr zu Lichtkette"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -263,7 +266,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     </div>
     <div class="kacheln">
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Tasterwelt/" target="_blank" rel="noopener"><span class="name">Tasterwelt</span><span class="kurz">Ursache und Wirkung per Taster</span><span class="tag">Noch in Arbeit</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Tasterwelt/" target="_blank" rel="noopener"><img class="icon" src="icons/Tasterwelt.png" alt="" width="40" height="40"><span class="text"><span class="name">Tasterwelt</span><span class="kurz">Ursache und Wirkung per Taster</span></span><span class="tag">Noch in Arbeit</span></a>
         <details>
           <summary aria-label="Mehr zu Tasterwelt"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -283,7 +286,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     </div>
     <div class="kacheln">
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/TimerTimer8/" target="_blank" rel="noopener"><span class="name">TimerTimer 8</span><span class="kurz">Flexibler Auszeit-Timer</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/TimerTimer8/" target="_blank" rel="noopener"><img class="icon" src="icons/TimerTimer8.png" alt="" width="40" height="40"><span class="text"><span class="name">TimerTimer 8</span><span class="kurz">Flexibler Auszeit-Timer</span></span></a>
         <details>
           <summary aria-label="Mehr zu TimerTimer 8"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -295,7 +298,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/html-editor/" target="_blank" rel="noopener"><span class="name">HTML-Editor</span><span class="kurz">Vibe-Coding: HTML-Code anzeigen, auf dem iPad</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/html-editor/" target="_blank" rel="noopener"><span class="icon platz" aria-hidden="true">H</span><span class="text"><span class="name">HTML-Editor</span><span class="kurz">Vibe-Coding: HTML-Code anzeigen, auf dem iPad</span></span></a>
         <details>
           <summary aria-label="Mehr zu HTML-Editor"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -307,7 +310,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/cafe-kasse/" target="_blank" rel="noopener"><span class="name">Café-Kasse</span><span class="kurz">Kassierhilfe</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/cafe-kasse/" target="_blank" rel="noopener"><img class="icon" src="icons/cafe-kasse.png" alt="" width="40" height="40"><span class="text"><span class="name">Café-Kasse</span><span class="kurz">Kassierhilfe</span></span></a>
         <details>
           <summary aria-label="Mehr zu Café-Kasse"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -319,7 +322,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener"><span class="name">4er-Quiz</span><span class="kurz">Schüleraktives Viererquiz</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener"><img class="icon" src="icons/4erQuiz1.png" alt="" width="40" height="40"><span class="text"><span class="name">4er-Quiz</span><span class="kurz">Schüleraktives Viererquiz</span></span></a>
         <details>
           <summary aria-label="Mehr zu 4er-Quiz"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -331,7 +334,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Klassensprecherwahl/" target="_blank" rel="noopener"><span class="name">Klassensprecherwahl</span><span class="kurz">Wahlhelfer mit Fotos</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Klassensprecherwahl/" target="_blank" rel="noopener"><img class="icon" src="icons/Klassensprecherwahl.png" alt="" width="40" height="40"><span class="text"><span class="name">Klassensprecherwahl</span><span class="kurz">Wahlhelfer mit Fotos</span></span></a>
         <details>
           <summary aria-label="Mehr zu Klassensprecherwahl"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -343,7 +346,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Antwort-Runde/" target="_blank" rel="noopener"><span class="name">Antwort-Runde</span><span class="kurz">Vorlesen, frei antworten</span><span class="tag">Noch in Arbeit</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Antwort-Runde/" target="_blank" rel="noopener"><span class="icon platz" aria-hidden="true">A</span><span class="text"><span class="name">Antwort-Runde</span><span class="kurz">Vorlesen, frei antworten</span></span><span class="tag">Noch in Arbeit</span></a>
         <details>
           <summary aria-label="Mehr zu Antwort-Runde"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
