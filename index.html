@@ -24,9 +24,9 @@
 
 body {
   background: var(--hg);
-  line-height: 1.5;
+  line-height: 1.4;
 }
-.band { display: flex; height: 14px; }
+.band { display: flex; height: 10px; }
 .band i { flex: 1; }
 .band i:nth-child(1) { background: var(--hellblau); }
 .band i:nth-child(2) { background: var(--hellblau); }
@@ -37,92 +37,101 @@ body {
 .band i:nth-child(7) { background: var(--silber); }
 
 main {
-  max-width: 1000px;
+  max-width: 1240px;
   margin-inline: auto;
-  padding-block: 32px 64px;
+  padding-block: 16px 40px;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 
 .wip {
-  display: flex; flex-direction: column; gap: 4px;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px;
   background: var(--gelb); color: var(--dunkelblau);
-  border: 4px solid var(--dunkelblau);
-  padding: 18px 22px; margin-bottom: 36px;
+  border: 3px solid var(--dunkelblau);
+  padding: 8px 14px; margin-bottom: 16px;
 }
-.wip strong { font-size: clamp(1.5rem, 5vw, 2.2rem); line-height: 1.1; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
-.wip span { font-size: 1.05rem; }
-.wip-fb { margin-top: 6px; font-weight: 700; }
-.wip-fb a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+.wip strong { font-size: var(--gr-1); text-transform: uppercase; letter-spacing: 0.03em; }
+.wip span { font-size: 0.92rem; }
+.wip a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 2px; }
 
-header { display: flex; gap: 24px; align-items: center; margin-bottom: 12px; }
-.logo { flex: none; width: 96px; height: 96px; }
-h1 {
-  font-weight: 700;
-  font-size: clamp(2rem, 7vw, 3.4rem);
-  line-height: 1.1;
-  margin: 0 0 12px;
-  text-wrap: balance;
+header { display: flex; gap: 16px; align-items: center; margin-bottom: 8px; }
+.logo { flex: none; width: 64px; height: 64px; }
+h1 { font-size: clamp(1.5rem, 4.5vw, 2.2rem); line-height: 1.1; margin: 0 0 4px; text-wrap: balance; }
+.lead { color: var(--leise); max-width: 90ch; margin: 0; font-size: 0.92rem; }
+
+.gruppen { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: flex-start; }
+section { margin-top: 12px; max-width: 100%; }
+.g-lernen   { --c: var(--hellblau); --cols: 4; }
+.g-spielen  { --c: var(--orange);   --cols: 2; }
+.g-wahl     { --c: var(--silber);   --cols: 2; }
+.g-taster   { --c: var(--gruen);    --cols: 1; }
+.g-werkzeug { --c: var(--hellgruen);--cols: 2; }
+section[class^="g-"] { width: calc(var(--cols) * 196px + (var(--cols) - 1) * 10px); }
+.group-head { margin-bottom: 6px; }
+h2 { font-size: 1rem; margin: 0; display: flex; align-items: center; gap: 8px; }
+h2::before { content: ""; flex: none; width: 0.9em; height: 0.9em; border-radius: 50%; background: var(--c); }
+
+.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; align-items: start; }
+
+/* Kachel: links Name und Kurztext (Link zur App), rechts Pfeil für mehr */
+.app { position: relative; display: flex; align-items: stretch; background: var(--karte); border: 2px solid var(--c); border-left-width: 8px; min-width: 0; }
+.app-link {
+  flex: 1; min-width: 0; min-height: 56px; padding: 6px 8px 6px 10px;
+  display: flex; flex-direction: column; justify-content: center; gap: 1px;
+  color: var(--text); text-decoration: none;
 }
-.lead { color: var(--leise); max-width: 62ch; margin: 0; }
-.lead-2 { margin-top: 6px; }
-@media (max-width: 520px) { header { flex-direction: column; align-items: flex-start; gap: 12px; } .logo { width: 72px; height: 72px; } }
-
-section { margin-top: 44px; }
-.group-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
-h2 { font-size: var(--gr-2); font-weight: 700; margin: 0; display: flex; align-items: center; gap: 12px; }
-h2::before { content: ""; flex: none; width: 1.1em; height: 1.1em; border-radius: 50%; background: var(--c); }
-.group-note { background: var(--c); color: var(--dunkelblau); font-weight: 700; font-size: 0.9rem; padding: 2px 10px; border-radius: 99px; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
-
-a.app {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  background: var(--karte);
-  border: 2px solid var(--c);
-  color: inherit;
-  text-decoration: none;
-  min-height: 0;
-  transition: transform .12s, box-shadow .12s;
-}
-a.app:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--c); }
-.app h3 { margin: 0; padding: 8px 12px; background: var(--c); color: var(--dunkelblau); font-size: 1.05rem; font-weight: 700; overflow-wrap: anywhere; }
-.app p { margin: 0 12px; font-size: 0.9rem; line-height: 1.35; }
-.app h3 + p { margin-top: 10px; }
-.app p.why { font-size: 0.85rem; color: var(--leise); border-top: 2px solid var(--c); padding-top: 6px; margin-top: 8px; }
-.app p.why strong { color: var(--text); font-weight: 400; }
-.app .foot { margin: auto 12px 0; padding: 8px 0 10px; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
-.app .url { color: var(--leise); font-size: 0.78rem; overflow-wrap: anywhere; min-width: 0; }
-.app .qr { flex: none; width: 72px; height: 72px; border: 2px solid #fff; background: #fff; }
-.app .tag { align-self: flex-start; margin: 8px 12px 0; background: var(--gelb); color: var(--dunkelblau); border: 2px solid var(--dunkelblau); font-weight: 400; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 1px 8px; }
-.app .tag + p { margin-top: 8px; }
-
-/* Gruppenfarben aus der Palette, Schrift darauf immer Dunkelblau */
-.g-lernen   { --c: var(--hellblau); }
-.g-spielen  { --c: var(--orange); }
-.g-taster   { --c: var(--gruen); }
-.g-wahl     { --c: var(--silber); }
-.g-werkzeug { --c: var(--hellgruen); }
-/* Fach-Apps tragen ihre Fachfarbe (Deutsch ist rot) */
+.app-link:hover { background: var(--auswahl); }
+.name { font-size: 1rem; line-height: 1.2; overflow-wrap: break-word; hyphens: auto; }
+.kurz { font-size: 0.8rem; line-height: 1.25; color: var(--leise); }
+.tag { align-self: flex-start; margin-top: 3px; background: var(--orange); color: var(--dunkelblau); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; padding: 0 6px; }
 .app.fach-deutsch { --c: var(--fach-deutsch); }
 
-.feedback { border-top: 4px solid var(--text); padding-top: 24px; max-width: 64ch; }
+.app details { flex: none; }
+.app summary {
+  list-style: none; cursor: pointer; width: 48px; height: 100%; min-height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--akzent-text); border-left: 2px solid var(--linie);
+}
+.app summary::-webkit-details-marker { display: none; }
+.app summary:hover { background: var(--auswahl); }
+.app summary .symbol { width: 24px; height: 24px; transition: transform .15s; }
+.app details[open] summary { background: var(--auswahl); }
+.app details[open] summary .symbol { transform: rotate(180deg); }
+
+/* Aufklappfeld liegt über den Nachbarn, damit nichts springt */
+.mehr {
+  position: absolute; z-index: 20; top: calc(100% + 4px); left: -8px;
+  width: 310px; max-width: calc(100vw - 32px);
+  background: var(--karte); color: var(--text); border: 3px solid var(--c); padding: 12px 14px 14px;
+}
+.mehr.rechts { left: auto; right: -2px; }
+.mehr p { margin: 0 0 8px; font-size: 0.95rem; }
+.mehr p.why { color: var(--leise); font-size: 0.9rem; border-top: 2px solid var(--c); padding-top: 8px; }
+.mehr .foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.mehr .url { color: var(--leise); font-size: 0.82rem; overflow-wrap: anywhere; min-width: 0; }
+.mehr .qr { flex: none; width: 112px; height: 112px; border: 3px solid #fff; background: #fff; }
+.oeffnen {
+  display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 16px;
+  background: var(--app-akzent); color: var(--dunkelblau); border: 2px solid transparent; border-radius: var(--rundung);
+  text-decoration: none; font-weight: 700;
+}
+
+.feedback { --c: var(--gelb); border-top: 3px solid var(--text); margin-top: 24px; padding-top: 12px; max-width: 64ch; }
 .feedback h2::before { background: var(--gelb); }
-.feedback p { margin: 0 0 12px; }
-.fb-note { background: var(--gelb); color: var(--dunkelblau); border: 3px solid var(--dunkelblau); padding: 10px 14px; font-size: 1rem; }
+.feedback p { margin: 0 0 8px; font-size: 0.95rem; }
+.fb-note { background: var(--gelb); color: var(--dunkelblau); border: 3px solid var(--dunkelblau); padding: 8px 12px; }
 .fb-link {
   display: inline-flex; align-items: center; min-height: var(--knopf-hoehe);
   background: var(--hellblau); color: var(--dunkelblau); font-weight: 700; text-decoration: none;
-  padding: 0 22px; border: 3px solid var(--dunkelblau);
+  padding: 0 22px; border: 3px solid var(--dunkelblau); border-radius: var(--rundung);
 }
 .fb-link:hover { background: var(--karte); color: var(--text); border-color: var(--text); }
-.fb-addr { color: var(--leise); font-size: 0.95rem; }
+.fb-addr { color: var(--leise); }
 .fb-addr span { user-select: all; overflow-wrap: anywhere; }
 
-footer { margin-top: 48px; color: var(--leise); font-size: 0.92rem; border-top: 4px solid var(--text); padding-top: 16px; }
+footer { margin-top: 20px; color: var(--leise); font-size: 0.85rem; border-top: 3px solid var(--text); padding-top: 10px; }
 footer a { color: inherit; text-underline-offset: 3px; }
+@media (max-width: 520px) { .logo { width: 48px; height: 48px; } section[class^="g-"] { width: 100%; } }
 </style>
 </head>
 <body>
@@ -130,150 +139,227 @@ footer a { color: inherit; text-underline-offset: 3px; }
 <main>
   <div class="wip" role="note">
     <strong>Work in Progress</strong>
-    <span>Alle Projekte sind noch in Arbeit. Vieles ist unfertig und kann sich jederzeit ändern oder nicht funktionieren.</span>
-    <span class="wip-fb">Rückmeldungen sind willkommen: <a href="#h-feedback">Hier geht es zur Rückmeldung</a></span>
+    <span>Alle Projekte sind noch in Arbeit und können sich jederzeit ändern oder nicht funktionieren. <a href="#h-feedback">Zur Rückmeldung</a></span>
   </div>
 
   <header>
     <svg class="logo" viewBox="0 0 160 160" aria-hidden="true"><rect width="160" height="160" rx="36" fill="#FFD100"/><g transform="rotate(-10 80 80)"><rect x="28" y="40" width="104" height="80" rx="12" fill="#fff" stroke="#0D2B4E" stroke-width="7"/><circle cx="56" cy="80" r="10" fill="#4DB2E6"/><circle cx="80" cy="80" r="10" fill="#F39200"/><circle cx="104" cy="80" r="10" fill="#46A84A"/></g></svg>
     <div>
       <h1>Apps für den Unterricht</h1>
-      <p class="lead">Vierzehn kleine Web-Apps für iPad, Smartboard und Laptop. Sie laufen im Browser, brauchen kein Konto und keine Installation.</p>
-      <p class="lead lead-2">Entstanden für den Unterricht an der Förderschule KME. Alle Apps wurden per Vibe-Coding mit Claude erstellt.</p>
+      <p class="lead">Vierzehn kleine Web-Apps für iPad, Smartboard und Laptop, ohne Konto und ohne Installation. Entstanden für den Unterricht an der Förderschule KME, alle per Vibe-Coding mit Claude erstellt. Tippe auf eine App zum Öffnen, auf den Pfeil für Beschreibung und QR-Code.</p>
     </div>
   </header>
 
+  <div class="gruppen">
   <section class="g-lernen" aria-labelledby="h-lernen">
     <div class="group-head">
       <h2 id="h-lernen">Lernen: Sprache, Lesen, Mathe</h2>
-      <span class="group-note">7 Apps</span>
     </div>
-    <div class="grid">
-      <a class="app" href="https://walteroelf.github.io/Bilderwahl2/" target="_blank" rel="noopener">
-        <h3>Bilderwahl</h3>
-        <p>Sprachverständnis: Wörter hören und das passende Bild wählen, mit Piktogrammen und Audio.</p>
-        <p class="why"><strong>Das Besondere:</strong> Bilder und Piktogramme statt viel Text, alles wird vorgelesen. So ist die App auch ohne Lesekenntnisse nutzbar.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/Bilderwahl2</span><img class="qr" src="qr/Bilderwahl2.svg" width="72" height="72" alt="QR-Code zu Bilderwahl2" loading="lazy"></div>
-      </a>
-      <a class="app fach-deutsch" href="https://walteroelf.github.io/ABC-Bingo1/" target="_blank" rel="noopener">
-        <h3>Buchstaben-Bingo</h3>
-        <p>Ziehautomat für Bingo: Ein Buchstabe erscheint groß und wird vorgelesen.</p>
-        <p class="why"><strong>Das Besondere:</strong> Ein Kind tippt, der Buchstabe erscheint groß und wird vorgelesen. Gut für Kinder, die noch nicht lesen.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/ABC-Bingo1</span><img class="qr" src="qr/ABC-Bingo1.svg" width="72" height="72" alt="QR-Code zu ABC-Bingo1" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/MatheBingo/" target="_blank" rel="noopener">
-        <h3>Mathe-Bingo</h3>
-        <p>Rechen-Würfel mit Sprachausgabe für Mathe-Bingo und Mathe-Lotto.</p>
-        <p class="why"><strong>Das Besondere:</strong> Die Aufgaben werden vorgelesen, ohne Anmeldung. Alle können mitspielen, auch ohne sicheres Lesen.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/MatheBingo</span><img class="qr" src="qr/MatheBingo.svg" width="72" height="72" alt="QR-Code zu MatheBingo" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener">
-        <h3>4er-Quiz</h3>
-        <p>Quiz für die digitale Tafel mit vier Antworten, in ruhigem und reizarmem Design.</p>
-        <p class="why"><strong>Das Besondere:</strong> Reizarm: keine Muster, Schatten oder Bewegung, „richtig“ zeigt sich auch durch Zeichen statt nur durch Farbe.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/4erQuiz1</span><img class="qr" src="qr/4erQuiz1.svg" width="72" height="72" alt="QR-Code zu 4erQuiz1" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/kirmes-kiosk/" target="_blank" rel="noopener">
-        <h3>Kirmes-Kiosk</h3>
-        <p>Preise zusammenrechnen, Spielgeld legen und fotografieren. Die App prüft den Betrag.</p>
-        <p class="why"><strong>Das Besondere:</strong> Mit echtem Spielgeld aus der Klasse. Fotos bleiben auf dem Gerät, die App läuft auch offline.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/kirmes-kiosk</span><img class="qr" src="qr/kirmes-kiosk.svg" width="72" height="72" alt="QR-Code zu kirmes-kiosk" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/cafe-kasse/" target="_blank" rel="noopener">
-        <h3>Café-Kasse</h3>
-        <p>Artikel anlegen, Preise zusammenrechnen, mit Spielgeld bezahlen, Rückgeld ansehen.</p>
-        <p class="why"><strong>Das Besondere:</strong> Mit Spielgeld und großem Rückgeld. Passt zum praktischen Rechnen im Schülercafé.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/cafe-kasse</span><img class="qr" src="qr/cafe-kasse.svg" width="72" height="72" alt="QR-Code zu cafe-kasse" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener">
-        <h3>Mathe-Arena</h3>
-        <span class="tag">Noch in Arbeit</span>
-        <p>Rechenspiel für die digitale Tafel mit den Schüler-iPads: Jedes Kind bekommt Aufgaben auf seinem Niveau, die App lernt mit. Gemeinsames Klassenziel oder Wettbewerb an der Tafel.</p>
-        <p class="why"><strong>Das Besondere:</strong> Vom Ursache-Wirkung-Taster bis zum Rechnen bis 100. Antworten per Tippen, Taster oder Augensteuerung. Der Lernstand bleibt auf den Geräten, echte Namen stehen nur auf dem Lehrer-Gerät.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/Mathe-Arena</span><img class="qr" src="qr/Mathe-Arena.svg" width="72" height="72" alt="QR-Code zu Mathe-Arena" loading="lazy"></div>
-      </a>
+    <div class="kacheln">
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Bilderwahl2/" target="_blank" rel="noopener"><span class="name">Bilderwahl</span><span class="kurz">Wörter hören, Bild wählen</span></a>
+        <details>
+          <summary aria-label="Mehr zu Bilderwahl"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Sprachverständnis: Wörter hören und das passende Bild wählen, mit Piktogrammen und Audio.</p>
+            <p class="why"><strong>Das Besondere:</strong> Bilder und Piktogramme statt viel Text, alles wird vorgelesen. So ist die App auch ohne Lesekenntnisse nutzbar.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Bilderwahl2</span><img class="qr" src="qr/Bilderwahl2.svg" width="112" height="112" alt="QR-Code zu Bilderwahl2" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Bilderwahl2/" target="_blank" rel="noopener">Bilderwahl öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app fach-deutsch">
+        <a class="app-link" href="https://walteroelf.github.io/ABC-Bingo1/" target="_blank" rel="noopener"><span class="name">Buchstaben-Bingo</span><span class="kurz">Buchstaben ziehen, vorlesen</span></a>
+        <details>
+          <summary aria-label="Mehr zu Buchstaben-Bingo"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Ziehautomat für Bingo: Ein Buchstabe erscheint groß und wird vorgelesen.</p>
+            <p class="why"><strong>Das Besondere:</strong> Ein Kind tippt, der Buchstabe erscheint groß und wird vorgelesen. Gut für Kinder, die noch nicht lesen.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/ABC-Bingo1</span><img class="qr" src="qr/ABC-Bingo1.svg" width="112" height="112" alt="QR-Code zu ABC-Bingo1" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/ABC-Bingo1/" target="_blank" rel="noopener">Buchstaben-Bingo öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/MatheBingo/" target="_blank" rel="noopener"><span class="name">Mathe-Bingo</span><span class="kurz">Rechen-Würfel mit Sprache</span></a>
+        <details>
+          <summary aria-label="Mehr zu Mathe-Bingo"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Rechen-Würfel mit Sprachausgabe für Mathe-Bingo und Mathe-Lotto.</p>
+            <p class="why"><strong>Das Besondere:</strong> Die Aufgaben werden vorgelesen, ohne Anmeldung. Alle können mitspielen, auch ohne sicheres Lesen.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/MatheBingo</span><img class="qr" src="qr/MatheBingo.svg" width="112" height="112" alt="QR-Code zu MatheBingo" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/MatheBingo/" target="_blank" rel="noopener">Mathe-Bingo öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener"><span class="name">4er-Quiz</span><span class="kurz">Ruhiges Quiz, vier Antworten</span></a>
+        <details>
+          <summary aria-label="Mehr zu 4er-Quiz"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Quiz für die digitale Tafel mit vier Antworten, in ruhigem und reizarmem Design.</p>
+            <p class="why"><strong>Das Besondere:</strong> Reizarm: keine Muster, Schatten oder Bewegung, „richtig“ zeigt sich auch durch Zeichen statt nur durch Farbe.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/4erQuiz1</span><img class="qr" src="qr/4erQuiz1.svg" width="112" height="112" alt="QR-Code zu 4erQuiz1" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener">4er-Quiz öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/kirmes-kiosk/" target="_blank" rel="noopener"><span class="name">Kirmes-Kiosk</span><span class="kurz">Preise rechnen, Geld legen</span></a>
+        <details>
+          <summary aria-label="Mehr zu Kirmes-Kiosk"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Preise zusammenrechnen, Spielgeld legen und fotografieren. Die App prüft den Betrag.</p>
+            <p class="why"><strong>Das Besondere:</strong> Mit echtem Spielgeld aus der Klasse. Fotos bleiben auf dem Gerät, die App läuft auch offline.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/kirmes-kiosk</span><img class="qr" src="qr/kirmes-kiosk.svg" width="112" height="112" alt="QR-Code zu kirmes-kiosk" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/kirmes-kiosk/" target="_blank" rel="noopener">Kirmes-Kiosk öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/cafe-kasse/" target="_blank" rel="noopener"><span class="name">Café-Kasse</span><span class="kurz">Kassieren mit Spielgeld</span></a>
+        <details>
+          <summary aria-label="Mehr zu Café-Kasse"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Artikel anlegen, Preise zusammenrechnen, mit Spielgeld bezahlen, Rückgeld ansehen.</p>
+            <p class="why"><strong>Das Besondere:</strong> Mit Spielgeld und großem Rückgeld. Passt zum praktischen Rechnen im Schülercafé.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/cafe-kasse</span><img class="qr" src="qr/cafe-kasse.svg" width="112" height="112" alt="QR-Code zu cafe-kasse" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/cafe-kasse/" target="_blank" rel="noopener">Café-Kasse öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener"><span class="name">Mathe-Arena</span><span class="kurz">Rechnen auf eigenem Niveau</span><span class="tag">Noch in Arbeit</span></a>
+        <details>
+          <summary aria-label="Mehr zu Mathe-Arena"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Rechenspiel für die digitale Tafel mit den Schüler-iPads: Jedes Kind bekommt Aufgaben auf seinem Niveau, die App lernt mit. Gemeinsames Klassenziel oder Wettbewerb an der Tafel.</p>
+            <p class="why"><strong>Das Besondere:</strong> Vom Ursache-Wirkung-Taster bis zum Rechnen bis 100. Antworten per Tippen, Taster oder Augensteuerung. Der Lernstand bleibt auf den Geräten, echte Namen stehen nur auf dem Lehrer-Gerät.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Mathe-Arena</span><img class="qr" src="qr/Mathe-Arena.svg" width="112" height="112" alt="QR-Code zu Mathe-Arena" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener">Mathe-Arena öffnen</a>
+          </div>
+        </details>
+      </article>
     </div>
   </section>
 
   <section class="g-spielen" aria-labelledby="h-spielen">
     <div class="group-head">
       <h2 id="h-spielen">Spiele</h2>
-      <span class="group-note">2 Apps</span>
     </div>
-    <div class="grid">
-      <a class="app" href="https://walteroelf.github.io/tafel-spiele/" target="_blank" rel="noopener">
-        <h3>Tafel-Spiele</h3>
-        <p>Zehn Spiele für die flach liegende Tafel, gesteuert mit den Schüler-iPads: Scooter, Fußball, Hockey, Lichtspur, Münzjagd, 4er-Pong, Farbe erobern, Schafe hüten, Feuerwehr und Gebiet erobern. Bis zu 8 Mitspielende, auf Wunsch mit Bots.</p>
-        <p class="why"><strong>Das Besondere:</strong> Alle spielen gleichzeitig, jedes Kind mit eigenem iPad und eigener Farbe. Steuern per Neigung, Joystick oder Schieber. Keine Anmeldung, keine Namen, wenig Text.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/tafel-spiele</span><img class="qr" src="qr/tafel-spiele.svg" width="72" height="72" alt="QR-Code zu tafel-spiele" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/Lichtkette/" target="_blank" rel="noopener">
-        <h3>Lichtkette</h3>
-        <p>Gemeinsames Licht-Spiel für iPads, Taster und Augensteuerung: Ein Licht wandert von Gerät zu Gerät, die Tafel zeigt es.</p>
-        <p class="why"><strong>Das Besondere:</strong> Alle spielen zusammen, jede und jeder auf die eigene Art: tippen, Taster drücken oder Augensteuerung. Kein Verlieren, kein Zeitdruck, jedes Gerät mit eigener Farbe und Form.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/Lichtkette</span><img class="qr" src="qr/Lichtkette.svg" width="72" height="72" alt="QR-Code zu Lichtkette" loading="lazy"></div>
-      </a>
+    <div class="kacheln">
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/tafel-spiele/" target="_blank" rel="noopener"><span class="name">Tafel-Spiele</span><span class="kurz">Zehn Spiele für die Tafel</span></a>
+        <details>
+          <summary aria-label="Mehr zu Tafel-Spiele"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Zehn Spiele für die flach liegende Tafel, gesteuert mit den Schüler-iPads: Scooter, Fußball, Hockey, Lichtspur, Münzjagd, 4er-Pong, Farbe erobern, Schafe hüten, Feuerwehr und Gebiet erobern. Bis zu 8 Mitspielende, auf Wunsch mit Bots.</p>
+            <p class="why"><strong>Das Besondere:</strong> Alle spielen gleichzeitig, jedes Kind mit eigenem iPad und eigener Farbe. Steuern per Neigung, Joystick oder Schieber. Keine Anmeldung, keine Namen, wenig Text.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/tafel-spiele</span><img class="qr" src="qr/tafel-spiele.svg" width="112" height="112" alt="QR-Code zu tafel-spiele" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/tafel-spiele/" target="_blank" rel="noopener">Tafel-Spiele öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Lichtkette/" target="_blank" rel="noopener"><span class="name">Lichtkette</span><span class="kurz">Licht wandert von Gerät zu Gerät</span></a>
+        <details>
+          <summary aria-label="Mehr zu Lichtkette"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Gemeinsames Licht-Spiel für iPads, Taster und Augensteuerung: Ein Licht wandert von Gerät zu Gerät, die Tafel zeigt es.</p>
+            <p class="why"><strong>Das Besondere:</strong> Alle spielen zusammen, jede und jeder auf die eigene Art: tippen, Taster drücken oder Augensteuerung. Kein Verlieren, kein Zeitdruck, jedes Gerät mit eigener Farbe und Form.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Lichtkette</span><img class="qr" src="qr/Lichtkette.svg" width="112" height="112" alt="QR-Code zu Lichtkette" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Lichtkette/" target="_blank" rel="noopener">Lichtkette öffnen</a>
+          </div>
+        </details>
+      </article>
     </div>
   </section>
 
   <section class="g-wahl" aria-labelledby="h-wahl">
     <div class="group-head">
       <h2 id="h-wahl">Wahlen und Antworten</h2>
-      <span class="group-note">2 Apps</span>
     </div>
-    <div class="grid">
-      <a class="app" href="https://walteroelf.github.io/Klassensprecherwahl/" target="_blank" rel="noopener">
-        <h3>Klassensprecherwahl</h3>
-        <p>Wahl-App fürs iPad: Wahlkabine mit Foto-Kandidaten, geheime Stimmabgabe, Ergebnis auf der Tafel.</p>
-        <p class="why"><strong>Das Besondere:</strong> Kandidaten mit Foto statt nur Namen, auf Wunsch mit Vorlesen und großer Schrift. Alles bleibt auf dem iPad, keine Anmeldung, kein Internet nötig.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/Klassensprecherwahl</span><img class="qr" src="qr/Klassensprecherwahl.svg" width="72" height="72" alt="QR-Code zu Klassensprecherwahl" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/Antwort-Runde/" target="_blank" rel="noopener">
-        <h3>Antwort-Runde</h3>
-        <span class="tag">Noch in Arbeit</span>
-        <p>Texte und Fragen werden auf dem iPad vorgelesen. Die Kinder antworten frei: schreiben, einsprechen oder als Sprachaufnahme. Alle Antworten erscheinen sofort auf dem Lehrer-Gerät.</p>
-        <p class="why"><strong>Das Besondere:</strong> Auch ohne sicheres Lesen und Schreiben nutzbar: vorlesen lassen, einsprechen statt tippen. Kein Konto, die Kinder kommen per QR-Code und erscheinen mit Pseudonym wie „Blauer Falke 42“.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/Antwort-Runde</span><img class="qr" src="qr/Antwort-Runde.svg" width="72" height="72" alt="QR-Code zu Antwort-Runde" loading="lazy"></div>
-      </a>
+    <div class="kacheln">
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Klassensprecherwahl/" target="_blank" rel="noopener"><span class="name">Klassensprecherwahl</span><span class="kurz">Wahl mit Foto-Kandidaten</span></a>
+        <details>
+          <summary aria-label="Mehr zu Klassensprecherwahl"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Wahl-App fürs iPad: Wahlkabine mit Foto-Kandidaten, geheime Stimmabgabe, Ergebnis auf der Tafel.</p>
+            <p class="why"><strong>Das Besondere:</strong> Kandidaten mit Foto statt nur Namen, auf Wunsch mit Vorlesen und großer Schrift. Alles bleibt auf dem iPad, keine Anmeldung, kein Internet nötig.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Klassensprecherwahl</span><img class="qr" src="qr/Klassensprecherwahl.svg" width="112" height="112" alt="QR-Code zu Klassensprecherwahl" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Klassensprecherwahl/" target="_blank" rel="noopener">Klassensprecherwahl öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Antwort-Runde/" target="_blank" rel="noopener"><span class="name">Antwort-Runde</span><span class="kurz">Vorlesen, frei antworten</span><span class="tag">Noch in Arbeit</span></a>
+        <details>
+          <summary aria-label="Mehr zu Antwort-Runde"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Texte und Fragen werden auf dem iPad vorgelesen. Die Kinder antworten frei: schreiben, einsprechen oder als Sprachaufnahme. Alle Antworten erscheinen sofort auf dem Lehrer-Gerät.</p>
+            <p class="why"><strong>Das Besondere:</strong> Auch ohne sicheres Lesen und Schreiben nutzbar: vorlesen lassen, einsprechen statt tippen. Kein Konto, die Kinder kommen per QR-Code und erscheinen mit Pseudonym wie „Blauer Falke 42“.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Antwort-Runde</span><img class="qr" src="qr/Antwort-Runde.svg" width="112" height="112" alt="QR-Code zu Antwort-Runde" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Antwort-Runde/" target="_blank" rel="noopener">Antwort-Runde öffnen</a>
+          </div>
+        </details>
+      </article>
     </div>
   </section>
 
   <section class="g-taster" aria-labelledby="h-taster">
     <div class="group-head">
       <h2 id="h-taster">Taster</h2>
-      <span class="group-note">1 App</span>
     </div>
-    <div class="grid">
-      <a class="app" href="https://walteroelf.github.io/Tasterwelt/" target="_blank" rel="noopener">
-        <h3>Tasterwelt</h3>
-        <span class="tag">Noch in Arbeit</span>
-        <p>Ursache und Wirkung: Mit jedem Tasterdruck passiert etwas. Per Taster, iSwitch oder Bildschirm.</p>
-        <p class="why"><strong>Das Besondere:</strong> Läuft mit Taster, iSwitch oder dem ganzen Bildschirm als Taster. Dunkle Bühne und wenig Text, auch für CVI geeignet.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/Tasterwelt</span><img class="qr" src="qr/Tasterwelt.svg" width="72" height="72" alt="QR-Code zu Tasterwelt" loading="lazy"></div>
-      </a>
+    <div class="kacheln">
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Tasterwelt/" target="_blank" rel="noopener"><span class="name">Tasterwelt</span><span class="kurz">Ursache und Wirkung per Taster</span><span class="tag">Noch in Arbeit</span></a>
+        <details>
+          <summary aria-label="Mehr zu Tasterwelt"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Ursache und Wirkung: Mit jedem Tasterdruck passiert etwas. Per Taster, iSwitch oder Bildschirm.</p>
+            <p class="why"><strong>Das Besondere:</strong> Läuft mit Taster, iSwitch oder dem ganzen Bildschirm als Taster. Dunkle Bühne und wenig Text, auch für CVI geeignet.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Tasterwelt</span><img class="qr" src="qr/Tasterwelt.svg" width="112" height="112" alt="QR-Code zu Tasterwelt" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Tasterwelt/" target="_blank" rel="noopener">Tasterwelt öffnen</a>
+          </div>
+        </details>
+      </article>
     </div>
   </section>
 
   <section class="g-werkzeug" aria-labelledby="h-werkzeug">
     <div class="group-head">
       <h2 id="h-werkzeug">Werkzeuge für Lehrkräfte</h2>
-      <span class="group-note">2 Apps</span>
     </div>
-    <div class="grid">
-      <a class="app" href="https://walteroelf.github.io/TimerTimer8/" target="_blank" rel="noopener">
-        <h3>TimerTimer 8</h3>
-        <p>Eieruhr mit roter Arbeitszeit und grüner Auszeit, jederzeit anpassbar.</p>
-        <p class="why"><strong>Das Besondere:</strong> Rot und Grün zeigen die Zeit auch ohne Zahlen. Die Lehrkraft passt die Auszeit spontan an.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/TimerTimer8</span><img class="qr" src="qr/TimerTimer8.svg" width="72" height="72" alt="QR-Code zu TimerTimer8" loading="lazy"></div>
-      </a>
-      <a class="app" href="https://walteroelf.github.io/html-editor/" target="_blank" rel="noopener">
-        <h3>HTML-Editor</h3>
-        <p>HTML-Code einfügen oder schreiben und sofort die Vorschau sehen. Speichern, Datei laden und Drucken mit einstellbarem Rand.</p>
-        <p class="why"><strong>Das Besondere:</strong> Mit Syntax-Farben, Zeilennummern und Dunkelmodus. Der Code bleibt im Browser auf dem Gerät, kein Konto nötig.</p>
-        <div class="foot"><span class="url">walteroelf.github.io/html-editor</span><img class="qr" src="qr/html-editor.svg" width="72" height="72" alt="QR-Code zu html-editor" loading="lazy"></div>
-      </a>
+    <div class="kacheln">
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/TimerTimer8/" target="_blank" rel="noopener"><span class="name">TimerTimer 8</span><span class="kurz">Eieruhr in Rot und Grün</span></a>
+        <details>
+          <summary aria-label="Mehr zu TimerTimer 8"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Eieruhr mit roter Arbeitszeit und grüner Auszeit, jederzeit anpassbar.</p>
+            <p class="why"><strong>Das Besondere:</strong> Rot und Grün zeigen die Zeit auch ohne Zahlen. Die Lehrkraft passt die Auszeit spontan an.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/TimerTimer8</span><img class="qr" src="qr/TimerTimer8.svg" width="112" height="112" alt="QR-Code zu TimerTimer8" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/TimerTimer8/" target="_blank" rel="noopener">TimerTimer 8 öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/html-editor/" target="_blank" rel="noopener"><span class="name">HTML-Editor</span><span class="kurz">Code schreiben, Vorschau, Druck</span></a>
+        <details>
+          <summary aria-label="Mehr zu HTML-Editor"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>HTML-Code einfügen oder schreiben und sofort die Vorschau sehen. Speichern, Datei laden und Drucken mit einstellbarem Rand.</p>
+            <p class="why"><strong>Das Besondere:</strong> Mit Syntax-Farben, Zeilennummern und Dunkelmodus. Der Code bleibt im Browser auf dem Gerät, kein Konto nötig.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/html-editor</span><img class="qr" src="qr/html-editor.svg" width="112" height="112" alt="QR-Code zu html-editor" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/html-editor/" target="_blank" rel="noopener">HTML-Editor öffnen</a>
+          </div>
+        </details>
+      </article>
     </div>
   </section>
+
+  </div>
 
   <section class="feedback" aria-labelledby="h-feedback">
     <h2 id="h-feedback">Rückmeldung</h2>
@@ -285,5 +371,21 @@ footer a { color: inherit; text-underline-offset: 3px; }
 
   <footer>© 2026 Walteroelf. Lizenz: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>, kostenlos für Schulen nutzbar.<br>Stand: November 2026</footer>
 </main>
+<script>
+/* Nur ein Aufklappfeld gleichzeitig; Feld bleibt im Bild; Esc oder Tippen daneben schließt */
+(function () {
+  function alleZu(except) { document.querySelectorAll('.app details[open]').forEach(function (d) { if (d !== except) d.open = false; }); }
+  document.addEventListener('toggle', function (e) {
+    var d = e.target;
+    if (!d.matches || !d.matches('.app details') || !d.open) return;
+    alleZu(d);
+    var m = d.querySelector('.mehr');
+    m.classList.remove('rechts');
+    if (m.getBoundingClientRect().right > document.documentElement.clientWidth - 8) m.classList.add('rechts');
+  }, true);
+  document.addEventListener('click', function (e) { if (!e.target.closest('.app')) alleZu(null); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') alleZu(null); });
+})();
+</script>
 </body>
 </html>
