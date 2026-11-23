@@ -59,19 +59,19 @@ header { display: flex; gap: 16px; align-items: center; margin-bottom: 8px; }
 h1 { font-size: clamp(1.5rem, 4.5vw, 2.2rem); line-height: 1.1; margin: 0 0 4px; text-wrap: balance; }
 .lead { color: var(--leise); max-width: 90ch; margin: 0; font-size: 0.92rem; }
 
-.gruppen { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: flex-start; }
-section { margin-top: 12px; max-width: 100%; }
-.g-lernen   { --c: var(--hellblau); --cols: 4; }
-.g-spielen  { --c: var(--orange);   --cols: 2; }
-.g-wahl     { --c: var(--silber);   --cols: 2; }
-.g-taster   { --c: var(--gruen);    --cols: 1; }
-.g-werkzeug { --c: var(--hellgruen);--cols: 2; }
-section[class^="g-"] { width: calc(var(--cols) * 196px + (var(--cols) - 1) * 10px); }
+.gruppen { display: block; }
+section { margin-top: 18px; }
+.g-sprache  { --c: var(--fach-deutsch); }
+.g-mathe    { --c: var(--fach-mathe); }
+.g-spielen  { --c: var(--orange); }
+.g-wahl     { --c: var(--silber); }
+.g-taster   { --c: var(--gruen); }
+.g-werkzeug { --c: var(--hellgruen); }
 .group-head { margin-bottom: 14px; }
 h2 { font-size: 1rem; margin: 0; display: flex; align-items: center; gap: 8px; }
 h2::before { content: ""; flex: none; width: 0.9em; height: 0.9em; border-radius: 50%; background: var(--c); }
 
-.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); grid-auto-rows: 88px; gap: 14px 10px; }
+.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 200px)); grid-auto-rows: 88px; gap: 14px 10px; }
 
 /* Kachel: links Name und Kurztext (Link zur App), rechts Pfeil für mehr */
 .app { position: relative; display: flex; align-items: stretch; background: var(--c); color: var(--dunkelblau); border: 2px solid var(--dunkelblau); min-width: 0; height: 88px; }
@@ -130,7 +130,7 @@ h2::before { content: ""; flex: none; width: 0.9em; height: 0.9em; border-radius
 
 footer { margin-top: 20px; color: var(--leise); font-size: 0.85rem; border-top: 3px solid var(--text); padding-top: 10px; }
 footer a { color: inherit; text-underline-offset: 3px; }
-@media (max-width: 520px) { .logo { width: 48px; height: 48px; } section[class^="g-"] { width: 100%; } }
+@media (max-width: 520px) { .logo { width: 48px; height: 48px; } }
 </style>
 </head>
 <body>
@@ -150,9 +150,9 @@ footer a { color: inherit; text-underline-offset: 3px; }
   </header>
 
   <div class="gruppen">
-  <section class="g-lernen" aria-labelledby="h-lernen">
+  <section class="g-sprache" aria-labelledby="h-sprache">
     <div class="group-head">
-      <h2 id="h-lernen">Lernen: Sprache, Lesen, Mathe</h2>
+      <h2 id="h-sprache">Sprache und Lesen</h2>
     </div>
     <div class="kacheln">
       <article class="app">
@@ -179,6 +179,14 @@ footer a { color: inherit; text-underline-offset: 3px; }
           </div>
         </details>
       </article>
+    </div>
+  </section>
+
+  <section class="g-mathe" aria-labelledby="h-mathe">
+    <div class="group-head">
+      <h2 id="h-mathe">Mathe und Rechnen</h2>
+    </div>
+    <div class="kacheln">
       <article class="app">
         <a class="app-link" href="https://walteroelf.github.io/MatheBingo/" target="_blank" rel="noopener"><span class="name">Mathe-Bingo</span><span class="kurz">Rechen-Würfel mit Sprache</span></a>
         <details>
@@ -188,18 +196,6 @@ footer a { color: inherit; text-underline-offset: 3px; }
             <p class="why"><strong>Das Besondere:</strong> Die Aufgaben werden vorgelesen, ohne Anmeldung. Alle können mitspielen, auch ohne sicheres Lesen.</p>
             <div class="foot"><span class="url">walteroelf.github.io/MatheBingo</span><img class="qr" src="qr/MatheBingo.svg" width="112" height="112" alt="QR-Code zu MatheBingo" loading="lazy"></div>
             <a class="oeffnen" href="https://walteroelf.github.io/MatheBingo/" target="_blank" rel="noopener">Mathe-Bingo öffnen</a>
-          </div>
-        </details>
-      </article>
-      <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener"><span class="name">4er-Quiz</span><span class="kurz">Ruhiges Quiz, vier Antworten</span></a>
-        <details>
-          <summary aria-label="Mehr zu 4er-Quiz"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="mehr">
-            <p>Quiz für die digitale Tafel mit vier Antworten, in ruhigem und reizarmem Design.</p>
-            <p class="why"><strong>Das Besondere:</strong> Reizarm: keine Muster, Schatten oder Bewegung, „richtig“ zeigt sich auch durch Zeichen statt nur durch Farbe.</p>
-            <div class="foot"><span class="url">walteroelf.github.io/4erQuiz1</span><img class="qr" src="qr/4erQuiz1.svg" width="112" height="112" alt="QR-Code zu 4erQuiz1" loading="lazy"></div>
-            <a class="oeffnen" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener">4er-Quiz öffnen</a>
           </div>
         </details>
       </article>
@@ -216,7 +212,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/cafe-kasse/" target="_blank" rel="noopener"><span class="name">Café-Kasse</span><span class="kurz">Kassieren mit Spielgeld</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/cafe-kasse/" target="_blank" rel="noopener"><span class="name">Café-Kasse</span><span class="kurz">Kassierhilfe</span></a>
         <details>
           <summary aria-label="Mehr zu Café-Kasse"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -268,6 +264,18 @@ footer a { color: inherit; text-underline-offset: 3px; }
             <p class="why"><strong>Das Besondere:</strong> Alle spielen zusammen, jede und jeder auf die eigene Art: tippen, Taster drücken oder Augensteuerung. Kein Verlieren, kein Zeitdruck, jedes Gerät mit eigener Farbe und Form.</p>
             <div class="foot"><span class="url">walteroelf.github.io/Lichtkette</span><img class="qr" src="qr/Lichtkette.svg" width="112" height="112" alt="QR-Code zu Lichtkette" loading="lazy"></div>
             <a class="oeffnen" href="https://walteroelf.github.io/Lichtkette/" target="_blank" rel="noopener">Lichtkette öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener"><span class="name">4er-Quiz</span><span class="kurz">Ruhiges Quiz, vier Antworten</span></a>
+        <details>
+          <summary aria-label="Mehr zu 4er-Quiz"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Quiz für die digitale Tafel mit vier Antworten, in ruhigem und reizarmem Design.</p>
+            <p class="why"><strong>Das Besondere:</strong> Reizarm: keine Muster, Schatten oder Bewegung, „richtig“ zeigt sich auch durch Zeichen statt nur durch Farbe.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/4erQuiz1</span><img class="qr" src="qr/4erQuiz1.svg" width="112" height="112" alt="QR-Code zu 4erQuiz1" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/4erQuiz1/" target="_blank" rel="noopener">4er-Quiz öffnen</a>
           </div>
         </details>
       </article>
