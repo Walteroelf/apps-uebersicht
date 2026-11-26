@@ -129,6 +129,13 @@ h2::before { content: ""; flex: none; width: 0.9em; height: 0.9em; border-radius
 .fb-addr { color: var(--leise); }
 .fb-addr span { user-select: all; overflow-wrap: anywhere; }
 
+.fragmente { --c: var(--silber); margin-top: 24px; border-top: 3px solid var(--text); padding-top: 8px; }
+.fragmente > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; min-height: 48px; }
+.fragmente > summary::-webkit-details-marker { display: none; }
+.fragmente > summary .symbol { width: 24px; height: 24px; }
+.fragmente[open] > summary .symbol { transform: rotate(180deg); }
+.frag-hinweis { margin: 0 0 16px; font-size: 0.92rem; color: var(--leise); }
+
 footer { margin-top: 20px; color: var(--leise); font-size: 0.85rem; border-top: 3px solid var(--text); padding-top: 10px; }
 footer a { color: inherit; text-underline-offset: 3px; }
 @media (max-width: 520px) { .logo { width: 48px; height: 48px; } }
@@ -146,7 +153,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     <svg class="logo" viewBox="0 0 160 160" aria-hidden="true"><rect width="160" height="160" rx="36" fill="#FFD100"/><g transform="rotate(-10 80 80)"><rect x="28" y="40" width="104" height="80" rx="12" fill="#fff" stroke="#0D2B4E" stroke-width="7"/><circle cx="56" cy="80" r="10" fill="#4DB2E6"/><circle cx="80" cy="80" r="10" fill="#F39200"/><circle cx="104" cy="80" r="10" fill="#46A84A"/></g></svg>
     <div>
       <h1>Apps für den Unterricht</h1>
-      <p class="lead">Vierzehn kleine Web-Apps für iPad, Smartboard und Laptop, ohne Konto und ohne Installation. Entstanden für den Unterricht an der Förderschule KME, alle per Vibe-Coding mit Claude erstellt. Tippe auf eine App zum Öffnen, auf den Pfeil für Beschreibung und QR-Code.</p>
+      <p class="lead">Dreizehn kleine Web-Apps für iPad, Smartboard und Laptop, ohne Konto und ohne Installation. Entstanden für den Unterricht an der Förderschule KME, alle per Vibe-Coding mit Claude erstellt. Tippe auf eine App zum Öffnen, auf den Pfeil für Beschreibung und QR-Code.</p>
     </div>
   </header>
 
@@ -177,18 +184,6 @@ footer a { color: inherit; text-underline-offset: 3px; }
             <p class="why"><strong>Das Besondere:</strong> Mit echtem Spielgeld aus der Klasse. Fotos bleiben auf dem Gerät, die App läuft auch offline.</p>
             <div class="foot"><span class="url">walteroelf.github.io/kirmes-kiosk</span><img class="qr" src="qr/kirmes-kiosk.svg" width="112" height="112" alt="QR-Code zu kirmes-kiosk" loading="lazy"></div>
             <a class="oeffnen" href="https://walteroelf.github.io/kirmes-kiosk/" target="_blank" rel="noopener">Kirmes-Kiosk öffnen</a>
-          </div>
-        </details>
-      </article>
-      <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener"><img class="icon" src="icons/Mathe-Arena.png" alt="" width="40" height="40"><span class="text"><span class="name">Mathe-Arena</span><span class="kurz">Rechnen auf eigenem Niveau</span></span><span class="tag">Noch in Arbeit</span></a>
-        <details>
-          <summary aria-label="Mehr zu Mathe-Arena"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="mehr">
-            <p>Rechenspiel für die digitale Tafel mit den Schüler-iPads: Jedes Kind bekommt Aufgaben auf seinem Niveau, die App lernt mit. Gemeinsames Klassenziel oder Wettbewerb an der Tafel.</p>
-            <p class="why"><strong>Das Besondere:</strong> Vom Ursache-Wirkung-Taster bis zum Rechnen bis 100. Antworten per Tippen, Taster oder Augensteuerung. Der Lernstand bleibt auf den Geräten, echte Namen stehen nur auf dem Lehrer-Gerät.</p>
-            <div class="foot"><span class="url">walteroelf.github.io/Mathe-Arena</span><img class="qr" src="qr/Mathe-Arena.svg" width="112" height="112" alt="QR-Code zu Mathe-Arena" loading="lazy"></div>
-            <a class="oeffnen" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener">Mathe-Arena öffnen</a>
           </div>
         </details>
       </article>
@@ -265,7 +260,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
     </div>
     <div class="kacheln">
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Tasterwelt/" target="_blank" rel="noopener"><img class="icon" src="icons/Tasterwelt.png" alt="" width="40" height="40"><span class="text"><span class="name">Tasterwelt</span><span class="kurz">Ursache und Wirkung per Taster</span></span><span class="tag">Noch in Arbeit</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Tasterwelt/" target="_blank" rel="noopener"><img class="icon" src="icons/Tasterwelt.png" alt="" width="40" height="40"><span class="text"><span class="name">Tasterwelt</span><span class="kurz">Ursache und Wirkung per Taster</span></span></a>
         <details>
           <summary aria-label="Mehr zu Tasterwelt"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -345,7 +340,7 @@ footer a { color: inherit; text-underline-offset: 3px; }
         </details>
       </article>
       <article class="app">
-        <a class="app-link" href="https://walteroelf.github.io/Antwort-Runde/" target="_blank" rel="noopener"><img class="icon" src="icons/Antwort-Runde.png" alt="" width="40" height="40"><span class="text"><span class="name">Antwort-Runde</span><span class="kurz">Vorlesen, frei antworten</span></span><span class="tag">Noch in Arbeit</span></a>
+        <a class="app-link" href="https://walteroelf.github.io/Antwort-Runde/" target="_blank" rel="noopener"><img class="icon" src="icons/Antwort-Runde.png" alt="" width="40" height="40"><span class="text"><span class="name">Antwort-Runde</span><span class="kurz">Vorlesen, frei antworten</span></span></a>
         <details>
           <summary aria-label="Mehr zu Antwort-Runde"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
           <div class="mehr">
@@ -368,6 +363,73 @@ footer a { color: inherit; text-underline-offset: 3px; }
     <p><a class="fb-link" href="mailto:06.gesegelt_hoehlen@icloud.com?subject=R%C3%BCckmeldung%20zu%20den%20Unterrichts-Apps">Rückmeldung per E-Mail schreiben</a></p>
     <p class="fb-addr">Oder direkt an: <span>06.gesegelt_hoehlen@icloud.com</span></p>
   </section>
+
+  <details class="fragmente">
+    <summary><h2>Fragmente und in Arbeit</h2><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+    <p class="frag-hinweis">Ungetestet und nicht offiziell: Hier liegen Entwürfe zum Ausprobieren. Bitte noch nicht im Unterricht einplanen.</p>
+    <div class="kacheln">
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener"><img class="icon" src="icons/Mathe-Arena.png" alt="" width="40" height="40"><span class="text"><span class="name">Mathe-Arena</span><span class="kurz">Rechnen auf eigenem Niveau</span></span></a>
+        <details>
+          <summary aria-label="Mehr zu Mathe-Arena"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Rechenspiel für die digitale Tafel mit den Schüler-iPads: Jedes Kind bekommt Aufgaben auf seinem Niveau, die App lernt mit. Gemeinsames Klassenziel oder Wettbewerb an der Tafel.</p>
+            <p class="why"><strong>Das Besondere:</strong> Vom Ursache-Wirkung-Taster bis zum Rechnen bis 100. Antworten per Tippen, Taster oder Augensteuerung. Der Lernstand bleibt auf den Geräten, echte Namen stehen nur auf dem Lehrer-Gerät.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Mathe-Arena</span><img class="qr" src="qr/Mathe-Arena.svg" width="112" height="112" alt="QR-Code zu Mathe-Arena" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Mathe-Arena/" target="_blank" rel="noopener">Mathe-Arena öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/Fotowand/" target="_blank" rel="noopener"><img class="icon" src="icons/Fotowand.png" alt="" width="40" height="40"><span class="text"><span class="name">Fotowand</span><span class="kurz">Fotos der Kinder an der Tafel</span></span></a>
+        <details>
+          <summary aria-label="Mehr zu Fotowand"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Die Kinder fotografieren auf dem iPad ihre Arbeit, die Fotos erscheinen als Wand an der Tafel. Zugang per QR-Code oder vier Buchstaben. Arbeitstitel.</p>
+            <p class="why"><strong>Das Besondere:</strong> Nur Fantasienamen, keine Konten. Fotos werden nicht gespeichert und verfallen. Auf Wunsch gibt die Lehrkraft sie per Fernbedienung frei.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/Fotowand</span><img class="qr" src="qr/Fotowand.svg" width="112" height="112" alt="QR-Code zu Fotowand" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/Fotowand/" target="_blank" rel="noopener">Fotowand öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/taster-rad/" target="_blank" rel="noopener"><img class="icon" src="icons/taster-rad.png" alt="" width="40" height="40"><span class="text"><span class="name">Taster-Rad</span><span class="kurz">Zufallsrad für den Taster</span></span></a>
+        <details>
+          <summary aria-label="Mehr zu Taster-Rad"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Tastergesteuertes Zufallsrad für den Unterricht, am iPad per Touch oder mit einem Taster. Prototyp.</p>
+            <p class="why"><strong>Das Besondere:</strong> Eigene Vorlagen und Bilder bleiben auf dem Gerät. Läuft nach dem ersten Öffnen offline.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/taster-rad</span><img class="qr" src="qr/taster-rad.svg" width="112" height="112" alt="QR-Code zu Taster-Rad" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/taster-rad/" target="_blank" rel="noopener">Taster-Rad öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/EscapeGame1/" target="_blank" rel="noopener"><img class="icon" src="icons/EscapeGame1.png" alt="" width="40" height="40"><span class="text"><span class="name">Escape-Game</span><span class="kurz">Einkaufen in drei Räumen</span></span></a>
+        <details>
+          <summary aria-label="Mehr zu Escape-Game"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Escape-Game zum Thema Einkaufen: Obst und Gemüse, Bäckerei und Kasse. In jedem Raum Aufgaben lösen und den Code für die Tür sammeln.</p>
+            <p class="why"><strong>Das Besondere:</strong> Alle spielen dasselbe Abenteuer, jedes Kind auf seinem Niveau, in vier Stufen vom Ursache-Wirkung-Knopf bis zum Schreiben.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/EscapeGame1</span><img class="qr" src="qr/EscapeGame1.svg" width="112" height="112" alt="QR-Code zu Escape-Game" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/EscapeGame1/" target="_blank" rel="noopener">Escape-Game öffnen</a>
+          </div>
+        </details>
+      </article>
+      <article class="app">
+        <a class="app-link" href="https://walteroelf.github.io/foerderdiagnostik/" target="_blank" rel="noopener"><img class="icon" src="icons/foerderdiagnostik.png" alt="" width="40" height="40"><span class="text"><span class="name">Förderdiagnostik</span><span class="kurz">Lesen, Schreiben, Mathe, Hören</span></span></a>
+        <details>
+          <summary aria-label="Mehr zu Förderdiagnostik"><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="mehr">
+            <p>Informelles Diagnostik-Werkzeug mit Schülermodus für Lesen, Schreiben, Mathe und Hören. Ersetzt keine standardisierte Diagnostik.</p>
+            <p class="why"><strong>Das Besondere:</strong> Arbeitet mit Pseudonymen, alle Eingaben bleiben auf dem Gerät, ohne Server und ohne Tracking.</p>
+            <div class="foot"><span class="url">walteroelf.github.io/foerderdiagnostik</span><img class="qr" src="qr/foerderdiagnostik.svg" width="112" height="112" alt="QR-Code zu Förderdiagnostik" loading="lazy"></div>
+            <a class="oeffnen" href="https://walteroelf.github.io/foerderdiagnostik/" target="_blank" rel="noopener">Förderdiagnostik öffnen</a>
+          </div>
+        </details>
+      </article>
+    </div>
+  </details>
 
   <footer>© 2026 Walteroelf. Lizenz: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>, kostenlos für Schulen nutzbar.<br>Stand: November 2026</footer>
 </main>
